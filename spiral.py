@@ -2,6 +2,6 @@ class Spiral(object):
 
 	def start(self, x):
 		if isinstance(x, int):
-			return x
+			return str(x)
 		else:
 			raise ValueError
