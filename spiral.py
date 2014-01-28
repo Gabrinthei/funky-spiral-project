@@ -1,3 +1,5 @@
+import math
+
 class Spiral(object):
 
 	def start(self, x):
@@ -5,3 +7,11 @@ class Spiral(object):
 			return str(x)
 		else:
 			raise ValueError
+
+	def nextSquare(self, x):
+		x = math.floor(math.sqrt(x) + 1)
+		return x*x
+
+	def columnCount(self, x):
+		pass
+

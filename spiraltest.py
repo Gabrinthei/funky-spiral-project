@@ -12,8 +12,12 @@ class SpiralTests(unittest.TestCase):
 		self.assertIsInstance(self.spiral.start(5), str)
 
 	def test_spiral_returns_next_square(self):
-		nextSquare = spiral.nextSquare(5)
-		self.assertEqual(nextSquare, 9)
+		nextSquare = self.spiral.nextSquare(20)
+		self.assertEqual(nextSquare, 25)
+
+	def test_column_count(self):
+		columnCount = self.spiral.columnCount(27)
+		self.assertEqual(columnCount, 6)
 
 def main():
 	unittest.main()
