@@ -20,8 +20,8 @@ class SpiralTests(unittest.TestCase):
 		self.assertEqual(columnCount, 7)
 
 	def test_row_count(self):
-		rowCount = self.spiral.rowCount(13)
-		self.assertEqual(4)
+		rowCount = self.spiral.rowCount(24)
+		self.assertEqual(rowCount, 5)
 
 def main():
 	unittest.main()

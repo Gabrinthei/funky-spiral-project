@@ -16,5 +16,5 @@ class Spiral(object):
 		return math.floor(math.sqrt(x)) + 1
 
 	def rowCount(self, x):
-		pass
+		return x // math.sqrt(self.nextSquare(x)) + 1
 
