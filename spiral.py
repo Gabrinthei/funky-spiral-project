@@ -1,4 +1,7 @@
 class Spiral(object):
 
-	def start(self, to):
-		return to
+	def start(self, x):
+		if isinstance(x, int):
+			return x
+		else:
+			raise ValueError
