@@ -13,5 +13,8 @@ class Spiral(object):
 		return x*x
 
 	def columnCount(self, x):
+		return math.floor(math.sqrt(x)) + 1
+
+	def rowCount(self, x):
 		pass
 

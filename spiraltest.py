@@ -16,8 +16,12 @@ class SpiralTests(unittest.TestCase):
 		self.assertEqual(nextSquare, 25)
 
 	def test_column_count(self):
-		columnCount = self.spiral.columnCount(27)
-		self.assertEqual(columnCount, 6)
+		columnCount = self.spiral.columnCount(48)
+		self.assertEqual(columnCount, 7)
+
+	def test_row_count(self):
+		rowCount = self.spiral.rowCount(13)
+		self.assertEqual(4)
 
 def main():
 	unittest.main()
