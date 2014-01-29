@@ -28,6 +28,13 @@ class SpiralTests(unittest.TestCase):
 		self.assertEqual(row, 4)
 		self.assertEqual(col, 4)
 
+	def test_if_square(self):
+		self.assertTrue(self.spiral.isSquare(144))
+		self.assertFalse(self.spiral.isSquare(13))
+
+	
+
+
 def main():
 	unittest.main()
 

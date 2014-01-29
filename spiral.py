@@ -21,3 +21,5 @@ class Spiral(object):
 	def zeroStart(self, x):
 		return int(float(self.rowCount(x)) / 2 + .5) , int(float(self.columnCount(x)) / 2 + .5)
 
+	def isSquare(self, x):
+		return (math.floor(math.sqrt(x)) * math.floor(math.sqrt(x)) == x)
