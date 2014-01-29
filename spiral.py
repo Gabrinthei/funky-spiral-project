@@ -25,6 +25,6 @@ class Spiral(object):
 		return (math.floor(math.sqrt(x)) * math.floor(math.sqrt(x)) == x)
 
 	def goRight(self, row, col, value, array):
-		x = []
-		x.extend(range(value, self.nextSquare(value) + 1))
-		return x
+		for i in range(self.nextSquare(value) - value + 1):
+			array[row][col + i] = value + i
+		return array

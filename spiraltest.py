@@ -34,7 +34,7 @@ class SpiralTests(unittest.TestCase):
 		self.assertFalse(self.spiral.isSquare(13))
 
 	def test_go_right(self):
-		testArray = self.spiral.goRight(1, 1, [['f', 'f', 'f', 'f'], [5,0,1,'f'], [4,3,2,'f']])
+		testArray = self.spiral.goRight(0, 0, 6, [['f', 'f', 'f', 'f'], [5,0,1,'f'], [4,3,2,'f']])
 		self.assertEqual(testArray, [[6,7,8,9], [5,0,1,'f'], [4,3,2,'f']])
 
 
