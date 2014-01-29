@@ -23,6 +23,11 @@ class SpiralTests(unittest.TestCase):
 		rowCount = self.spiral.rowCount(24)
 		self.assertEqual(rowCount, 5)
 
+	def test_zero_location(self):
+		row, col = self.spiral.zeroStart(43)
+		self.assertEqual(row, 4)
+		self.assertEqual(col, 4)
+
 def main():
 	unittest.main()
 

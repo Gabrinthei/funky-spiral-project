@@ -18,3 +18,6 @@ class Spiral(object):
 	def rowCount(self, x):
 		return x // math.sqrt(self.nextSquare(x)) + 1
 
+	def zeroStart(self, x):
+		return int(float(self.rowCount(x)) / 2 + .5) , int(float(self.columnCount(x)) / 2 + .5)
+
