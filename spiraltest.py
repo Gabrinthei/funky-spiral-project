@@ -32,7 +32,9 @@ class SpiralTests(unittest.TestCase):
 		self.assertTrue(self.spiral.isSquare(144))
 		self.assertFalse(self.spiral.isSquare(13))
 
-	
+	def test_go_right(self):
+		testArray = self.spiral.goRight(1, 1, 6, [])
+		self.assertEqual(testArray, [6,7,8,9])
 
 
 def main():
