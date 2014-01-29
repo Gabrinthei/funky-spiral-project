@@ -14,6 +14,7 @@ class SpiralTests(unittest.TestCase):
 	def test_spiral_returns_next_square(self):
 		nextSquare = self.spiral.nextSquare(20)
 		self.assertEqual(nextSquare, 25)
+		self.assertIsInstance(nextSquare, int)
 
 	def test_column_count(self):
 		columnCount = self.spiral.columnCount(48)
@@ -33,8 +34,8 @@ class SpiralTests(unittest.TestCase):
 		self.assertFalse(self.spiral.isSquare(13))
 
 	def test_go_right(self):
-		testArray = self.spiral.goRight(1, 1, 6, [])
-		self.assertEqual(testArray, [6,7,8,9])
+		testArray = self.spiral.goRight(1, 1, [['f', 'f', 'f', 'f'], [5,0,1,'f'], [4,3,2,'f']])
+		self.assertEqual(testArray, [[6,7,8,9], [5,0,1,'f'], [4,3,2,'f']])
 
 
 def main():

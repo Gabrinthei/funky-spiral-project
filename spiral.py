@@ -10,7 +10,7 @@ class Spiral(object):
 
 	def nextSquare(self, x):
 		x = math.floor(math.sqrt(x) + 1)
-		return x*x
+		return int(x*x)
 
 	def columnCount(self, x):
 		return math.floor(math.sqrt(x)) + 1
@@ -23,3 +23,8 @@ class Spiral(object):
 
 	def isSquare(self, x):
 		return (math.floor(math.sqrt(x)) * math.floor(math.sqrt(x)) == x)
+
+	def goRight(self, row, col, value, array):
+		x = []
+		x.extend(range(value, self.nextSquare(value) + 1))
+		return x
