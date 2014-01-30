@@ -49,6 +49,13 @@ class SpiralTests(unittest.TestCase):
 		testArray = self.spiral.goDown(0, 3, 9, 11, [[6,7,8,'f'], [5,0,1,'f'], [4,3,2,'f'], ['f','f','f','f']])
 		self.assertEqual(testArray, [[6,7,8,9], [5,0,1,10], [4,3,2,11], ['f','f','f','f']])
 
+	def test_traversal_logic(self):
+		testArray = [[6,7,8,9], [5,0,1,10], [4,3,2,11], ['f','f','f','f']]
+		self.assertEqual(self.spiral.traversalLogic(4, testArray), 'up')
+		self.assertEqual(self.spiral.traversalLogic(6, testArray), 'right')
+		self.assertEqual(self.spiral.traversalLogic(9, testArray), 'down')
+		self.assertEqual(self.spiral.traversalLogic(12, testArray), 'left')
+
 def main():
 	unittest.main()
 
