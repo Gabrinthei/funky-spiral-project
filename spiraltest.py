@@ -34,20 +34,20 @@ class SpiralTests(unittest.TestCase):
 		self.assertFalse(self.spiral.isSquare(13))
 
 	def test_go_right(self):
-		testArray = self.spiral.goRight(0, 0, 6, [['f', 'f', 'f', 'f'], [5,0,1,'f'], [4,3,2,'f']])
-		self.assertEqual(testArray, [[6,7,8,9], [5,0,1,'f'], [4,3,2,'f']])
+		testArray = self.spiral.goRight(0, 0, 6, 7, [['f', 'f', 'f', 'f'], [5,0,1,'f'], [4,3,2,'f']])
+		self.assertEqual(testArray, [[6,7,'f','f'], [5,0,1,'f'], [4,3,2,'f']])
 
 	def test_go_left(self):
-		testArray = self.spiral.goLeft(3, 4, 12, [['f', 'f', 'f', 'f','f'], ['f',5,0,1,'f'], ['f',4,3,2,'f'], ['f','f', 'f', 'f', 'f']])
-		self.assertEqual(testArray, [['f','f', 'f', 'f', 'f'], ['f',5,0,1,'f'], ['f',4,3,2,'f'], [16,15,14,13,12]])
+		testArray = self.spiral.goLeft(3, 4, 12, 13, [['f', 'f', 'f', 'f','f'], ['f',5,0,1,'f'], ['f',4,3,2,'f'], ['f','f', 'f', 'f', 'f']])
+		self.assertEqual(testArray, [['f','f', 'f', 'f', 'f'], ['f',5,0,1,'f'], ['f',4,3,2,'f'], ['f','f','f',13,12]])
 
 	def test_go_up(self):
-		testArray = self.spiral.goUp(2, 0, 4, [['f', 'f', 'f'], ['f',0,1], ['f',3,2]])
-		self.assertEqual(testArray, [[6,'f','f'], [5,0,1], [4,3,2]])
+		testArray = self.spiral.goUp(2, 0, 4, 5, [['f', 'f', 'f'], ['f',0,1], ['f',3,2]])
+		self.assertEqual(testArray, [['f','f','f'], [5,0,1], [4,3,2]])
 
 	def test_go_down(self):
-		testArray = self.spiral.goDown(0, 3, 9, [[6,7,8,'f'], [5,0,1,'f'], [4,3,2,'f'], ['f','f','f','f']])
-		self.assertEqual(testArray, [[6,7,8,9], [5,0,1,10], [4,3,2,11], ['f','f','f',12]])
+		testArray = self.spiral.goDown(0, 3, 9, 11, [[6,7,8,'f'], [5,0,1,'f'], [4,3,2,'f'], ['f','f','f','f']])
+		self.assertEqual(testArray, [[6,7,8,9], [5,0,1,10], [4,3,2,11], ['f','f','f','f']])
 
 def main():
 	unittest.main()

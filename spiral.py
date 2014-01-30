@@ -24,22 +24,22 @@ class Spiral(object):
 	def isSquare(self, x):
 		return (math.floor(math.sqrt(x)) * math.floor(math.sqrt(x)) == x)
 
-	def goRight(self, row, col, value, array):
+	def goRight(self, row, col, value, final, array):
 		for i in range(self.nextSquare(value) - value + 1):
 			array[row][col + i] = value + i
 		return array
 
-	def goLeft(self, row, col, value, array):
+	def goLeft(self, row, col, value, final, array):
 		for i in range(self.nextSquare(value) - value + 1):
 			array[row][col - i] = value + i
 		return array
 
-	def goUp(self, row, col, value, array):
+	def goUp(self, row, col, value, final, array):
 		for i in range(int(math.sqrt(value)) + 1):
 			array[row-i][col] = value + i
 		return array
 
-	def goDown(self, row, col, value, array):
+	def goDown(self, row, col, value, final, array):
 		for i in range(int(math.sqrt(value)) + 1):
 			array[row+i][col] = value + i
 		return array
