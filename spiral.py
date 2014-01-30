@@ -28,3 +28,8 @@ class Spiral(object):
 		for i in range(self.nextSquare(value) - value + 1):
 			array[row][col + i] = value + i
 		return array
+
+	def goLeft(self, row, col, value, array):
+		for i in range(self.nextSquare(value) - value + 1):
+			array[row][col - i] = value + i
+		return array
