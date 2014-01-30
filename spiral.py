@@ -38,3 +38,8 @@ class Spiral(object):
 		for i in range(int(math.sqrt(value)) + 1):
 			array[row-i][col] = value + i
 		return array
+
+	def goDown(self, row, col, value, array):
+		for i in range(int(math.sqrt(value)) + 1):
+			array[row+i][col] = value + i
+		return array
