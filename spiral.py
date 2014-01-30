@@ -26,20 +26,24 @@ class Spiral(object):
 
 	def goRight(self, row, col, value, final, array):
 		for i in range(self.nextSquare(value) - value + 1):
-			array[row][col + i] = value + i
+			if value + i <= final:
+				array[row][col + i] = value + i
 		return array
 
 	def goLeft(self, row, col, value, final, array):
 		for i in range(self.nextSquare(value) - value + 1):
-			array[row][col - i] = value + i
+			if value + i <= final:
+				array[row][col - i] = value + i
 		return array
 
 	def goUp(self, row, col, value, final, array):
 		for i in range(int(math.sqrt(value)) + 1):
-			array[row-i][col] = value + i
+			if value + i <= final:
+				array[row-i][col] = value + i
 		return array
 
 	def goDown(self, row, col, value, final, array):
 		for i in range(int(math.sqrt(value)) + 1):
-			array[row+i][col] = value + i
+			if value + i <= final:
+				array[row+i][col] = value + i
 		return array
