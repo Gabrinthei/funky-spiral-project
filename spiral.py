@@ -47,3 +47,15 @@ class Spiral(object):
 			if value + i <= final:
 				array[row+i][col] = value + i
 		return array
+
+	def traversalLogic(self, corner, array):
+		if self.isSquare(corner):
+			if corner % 2 == 0:
+				return 'up'
+			else:
+				return 'down'
+		
+		if math.floor(math.sqrt(corner)) % 2 == 0:
+			return 'right'
+		
+		return 'left'
