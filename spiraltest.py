@@ -26,8 +26,8 @@ class SpiralTests(unittest.TestCase):
 
 	def test_zero_location(self):
 		row, col = self.spiral.zeroStart(43)
-		self.assertEqual(row, 4)
-		self.assertEqual(col, 4)
+		self.assertEqual(row, 3)
+		self.assertEqual(col, 3)
 
 	def test_if_square(self):
 		self.assertTrue(self.spiral.isSquare(144))
@@ -55,6 +55,9 @@ class SpiralTests(unittest.TestCase):
 		self.assertEqual(self.spiral.traversalLogic(6, testArray), 'right')
 		self.assertEqual(self.spiral.traversalLogic(9, testArray), 'down')
 		self.assertEqual(self.spiral.traversalLogic(12, testArray), 'left')
+
+	def test_initialize_array(self):
+		self.assertEqual(self.spiral.initializeArray(4), [['f',0,1],['f',3,2]])
 
 def main():
 	unittest.main()
