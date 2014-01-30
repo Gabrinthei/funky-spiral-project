@@ -41,6 +41,10 @@ class SpiralTests(unittest.TestCase):
 		testArray = self.spiral.goLeft(3, 4, 12, [['f', 'f', 'f', 'f','f'], ['f',5,0,1,'f'], ['f',4,3,2,'f'], ['f','f', 'f', 'f', 'f']])
 		self.assertEqual(testArray, [['f','f', 'f', 'f', 'f'], ['f',5,0,1,'f'], ['f',4,3,2,'f'], [16,15,14,13,12]])
 
+	def test_go_up(self):
+		testArray = self.spiral.goUp(2, 0, 4, [['f', 'f', 'f'], ['f',0,1], ['f',3,2]])
+		self.assertEqual(testArray, [[6,'f','f'], [5,0,1], [4,3,2]])
+
 def main():
 	unittest.main()
 
