@@ -11,6 +11,9 @@ class SpiralTests(unittest.TestCase):
 	def test_spiral_returns_string(self):
 		self.assertIsInstance(self.spiral.start(5), str)
 
+	def test_spiral_returns_correct_string(self):
+		self.assertEqual(self.spiral.start(8), "678\n501\n432")
+
 	def test_spiral_returns_next_square(self):
 		nextSquare = self.spiral.nextSquare(20)
 		self.assertEqual(nextSquare, 25)
