@@ -13,7 +13,16 @@ class Spiral(object):
 			if x == 3:
 				return self.arrayToString([[0,1],[3,2]])
 			flag = True
+			corner = 4
+			spiralArray, zeroRow, zeroCol = self.initializeArray(x)
+			currentRow = zeroRow + 1
+			currentCol = zeroCol - 1
 			
+			# while flag:
+			# 	direction = self.traversalLogic(corner, spiralArray)
+			# 	if direction == 'up':
+			# 		self.goUp(currentRow, currentCol, corner, x, spiralArray)
+
 			return str(x)
 		else:
 			raise ValueError
@@ -33,7 +42,7 @@ class Spiral(object):
 		array[zeroRow][zeroCol+1] = 1
 		array[zeroRow+1][zeroCol+1] = 2
 		array[zeroRow+1][zeroCol] = 3
-		return array
+		return array, zeroRow, zeroCol
 
 	def nextSquare(self, x):
 		x = math.floor(math.sqrt(x) + 1)
@@ -52,28 +61,40 @@ class Spiral(object):
 		return (math.floor(math.sqrt(x)) * math.floor(math.sqrt(x)) == x)
 
 	def goRight(self, row, col, value, final, array):
+		flag = True
 		for i in range(self.nextSquare(value) - value + 1):
 			if value + i <= final:
 				array[row][col + i] = value + i
-		return array
+			else:
+				flag = False
+		return array, flag, row, col + (self.nextSquare(value) - value)
 
 	def goLeft(self, row, col, value, final, array):
+		flag = True
 		for i in range(self.nextSquare(value) - value + 1):
 			if value + i <= final:
 				array[row][col - i] = value + i
-		return array
+			else:
+				flag = False
+		return array, flag, row, col - (self.nextSquare(value) - value)
 
 	def goUp(self, row, col, value, final, array):
+		flag = True
 		for i in range(int(math.sqrt(value)) + 1):
 			if value + i <= final:
 				array[row-i][col] = value + i
-		return array
+			else:
+				flag = False
+		return array, flag, row - int(math.sqrt(value)), col
 
 	def goDown(self, row, col, value, final, array):
+		flag = True
 		for i in range(int(math.sqrt(value)) + 1):
 			if value + i <= final:
 				array[row+i][col] = value + i
-		return array
+			else:
+				flag = False
+		return array, flag, row + int(math.sqrt(value)), col
 
 	def traversalLogic(self, corner, array):
 		if self.isSquare(corner):
