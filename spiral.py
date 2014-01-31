@@ -29,9 +29,11 @@ class Spiral(object):
 				elif direction == 'right':
 					spiralArray, flag, currentRow, currentCol, corner = self.goRight(currentRow, currentCol, corner, x, spiralArray)
 
+			#self.printNiceArray(spiralArray)
 			return self.arrayToString(spiralArray)
 		else:
 			raise ValueError
+
 
 	def arrayToString(self, array):
 		arrayString = ''
@@ -41,6 +43,20 @@ class Spiral(object):
 			if row != array[len(array) - 1]:
 				arrayString += '\n'
 		return arrayString
+
+
+	def printNiceArray(self, array):
+		biggest = 0
+		for row in array:
+			for col in row:
+				if len(str(col)) > biggest:
+					biggest = len(str(col))
+		for row in array:
+			for col in row:
+				print ('%*s' % (biggest, str(col))),
+			if row != array[len(array) - 1]:
+				print
+
 
 	def initializeArray(self, x):
 		array = [['f' for i in range(self.columnCount(x))] for j in range(self.rowCount(x))]
