@@ -37,32 +37,36 @@ class SpiralTests(unittest.TestCase):
 		self.assertFalse(self.spiral.isSquare(13))
 
 	def test_go_right(self):
-		testArray, flag, row, col = self.spiral.goRight(0, 0, 6, 13, [['f', 'f', 'f', 'f'], [5,0,1,'f'], [4,3,2,'f']])
+		testArray, flag, row, col, corner = self.spiral.goRight(0, 0, 6, 13, [['f', 'f', 'f', 'f'], [5,0,1,'f'], [4,3,2,'f']])
 		self.assertEqual(testArray, [[6,7,8,9], [5,0,1,'f'], [4,3,2,'f']])
 		self.assertTrue(flag)
 		self.assertEqual(row, 0)
 		self.assertEqual(col, 3)
+		self.assertEqual(corner, 9)
 
 	def test_go_left(self):
-		testArray, flag, row, col = self.spiral.goLeft(3, 4, 12, 13, [['f', 'f', 'f', 'f','f'], ['f',5,0,1,'f'], ['f',4,3,2,'f'], ['f','f', 'f', 'f', 'f']])
+		testArray, flag, row, col, corner = self.spiral.goLeft(3, 4, 12, 13, [['f', 'f', 'f', 'f','f'], ['f',5,0,1,'f'], ['f',4,3,2,'f'], ['f','f', 'f', 'f', 'f']])
 		self.assertEqual(testArray, [['f','f', 'f', 'f', 'f'], ['f',5,0,1,'f'], ['f',4,3,2,'f'], ['f','f','f',13,12]])
 		self.assertFalse(flag)
 		self.assertEqual(row, 3)
 		self.assertEqual(col, 0)
+		self.assertEqual(corner, 16)
 
 	def test_go_up(self):
-		testArray, flag, row, col = self.spiral.goUp(2, 0, 4, 5, [['f', 'f', 'f'], ['f',0,1], ['f',3,2]])
+		testArray, flag, row, col, corner = self.spiral.goUp(2, 0, 4, 5, [['f', 'f', 'f'], ['f',0,1], ['f',3,2]])
 		self.assertEqual(testArray, [['f','f','f'], [5,0,1], [4,3,2]])
 		self.assertFalse(flag)
 		self.assertEqual(row, 0)
 		self.assertEqual(col, 0)
+		self.assertEqual(corner, 6)
 
 	def test_go_down(self):
-		testArray, flag, row, col = self.spiral.goDown(0, 3, 9, 11, [[6,7,8,'f'], [5,0,1,'f'], [4,3,2,'f'], ['f','f','f','f']])
+		testArray, flag, row, col, corner = self.spiral.goDown(0, 3, 9, 11, [[6,7,8,'f'], [5,0,1,'f'], [4,3,2,'f'], ['f','f','f','f']])
 		self.assertEqual(testArray, [[6,7,8,9], [5,0,1,10], [4,3,2,11], ['f','f','f','f']])
 		self.assertFalse(flag)
 		self.assertEqual(row, 3)
 		self.assertEqual(col, 3)
+		self.assertEqual(corner, 12)
 
 	def test_traversal_logic(self):
 		testArray = [[6,7,8,9], [5,0,1,10], [4,3,2,11], ['f','f','f','f']]

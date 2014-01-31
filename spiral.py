@@ -18,12 +18,18 @@ class Spiral(object):
 			currentRow = zeroRow + 1
 			currentCol = zeroCol - 1
 			
-			# while flag:
-			# 	direction = self.traversalLogic(corner, spiralArray)
-			# 	if direction == 'up':
-			# 		self.goUp(currentRow, currentCol, corner, x, spiralArray)
+			while flag:
+				direction = self.traversalLogic(corner, spiralArray)
+				if direction == 'up':
+					spiralArray, flag, currentRow, currentCol, corner = self.goUp(currentRow, currentCol, corner, x, spiralArray)
+				elif direction == 'down':
+					spiralArray, flag, currentRow, currentCol, corner = self.goDown(currentRow, currentCol, corner, x, spiralArray)
+				elif direction == 'left':
+					spiralArray, flag, currentRow, currentCol, corner = self.goLeft(currentRow, currentCol, corner, x, spiralArray)
+				elif direction == 'right':
+					spiralArray, flag, currentRow, currentCol, corner = self.goRight(currentRow, currentCol, corner, x, spiralArray)
 
-			return str(x)
+			return self.arrayToString(spiralArray)
 		else:
 			raise ValueError
 
@@ -32,7 +38,8 @@ class Spiral(object):
 		for row in array:
 			for col in row:
 				arrayString += str(col)
-			arrayString += '\n'
+			if row != array[len(array) - 1]:
+				arrayString += '\n'
 		return arrayString
 
 	def initializeArray(self, x):
@@ -67,7 +74,7 @@ class Spiral(object):
 				array[row][col + i] = value + i
 			else:
 				flag = False
-		return array, flag, row, col + (self.nextSquare(value) - value)
+		return array, flag, row, col + (self.nextSquare(value) - value), self.nextSquare(value)
 
 	def goLeft(self, row, col, value, final, array):
 		flag = True
@@ -76,7 +83,7 @@ class Spiral(object):
 				array[row][col - i] = value + i
 			else:
 				flag = False
-		return array, flag, row, col - (self.nextSquare(value) - value)
+		return array, flag, row, col - (self.nextSquare(value) - value), self.nextSquare(value)
 
 	def goUp(self, row, col, value, final, array):
 		flag = True
@@ -85,7 +92,7 @@ class Spiral(object):
 				array[row-i][col] = value + i
 			else:
 				flag = False
-		return array, flag, row - int(math.sqrt(value)), col
+		return array, flag, row - int(math.sqrt(value)), col, value + int(math.sqrt(value))
 
 	def goDown(self, row, col, value, final, array):
 		flag = True
@@ -94,7 +101,7 @@ class Spiral(object):
 				array[row+i][col] = value + i
 			else:
 				flag = False
-		return array, flag, row + int(math.sqrt(value)), col
+		return array, flag, row + int(math.sqrt(value)), col, value + int(math.sqrt(value))
 
 	def traversalLogic(self, corner, array):
 		if self.isSquare(corner):
