@@ -9,11 +9,12 @@ class SpiralTests(unittest.TestCase):
 		self.assertRaises(ValueError, self.spiral.start, 'five')
 
 	def test_spiral_returns_string(self):
-		self.assertIsInstance(self.spiral.start(5), str)
+		self.assertIsInstance(self.spiral.start(5)[0], str)
 
 	def test_spiral_returns_correct_string(self):
-		self.assertEqual(self.spiral.start(8), "678\n501\n432")
-		
+		self.assertEqual(self.spiral.start(8)[0], "678\n501\n432")
+		self.assertEqual(self.spiral.start(0)[0], "0")
+		self.assertEqual(self.spiral.start(22)[0], "202122  \n196789\n1850110\n1743211\n1615141312")
 
 	def test_spiral_returns_next_square(self):
 		nextSquare = self.spiral.nextSquare(20)
